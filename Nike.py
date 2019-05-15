@@ -1,0 +1,73 @@
+from selenium import webdriver # 从selenium导入webdriver
+from bs4 import BeautifulSoup
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()  # Optional argument, if not specified will search path.
+
+driver.get('https://www.nike.com/cn/launch/') # 获取百度页面
+
+driver.find_element_by_xpath('//*[@id="root"]/div/div/div[1]/div/header/div[1]/section/ul/li[1]/button').click()
+print("当前地址",driver.current_url)
+mobileNumberToEmailLoginLinkDiv = driver.find_element_by_css_selector("[class='nike-unite-component action-link mobileNumberToEmailLoginLink toggle-action-link']") #.find_element(By.TAG_NAME,'a')
+alink = mobileNumberToEmailLoginLinkDiv.find_element(By.TAG_NAME,'a')
+alink.click()
+time.sleep(1)
+emailAddress_textfield = driver.find_element_by_name('emailAddress')
+emailAddress_textfield.send_keys("x")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("i")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("a")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("n")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("g")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("b")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("o")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("l")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("o")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("n")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("g")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("@")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("g")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("m")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("a")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("i")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("l")
+time.sleep(0.12)
+emailAddress_textfield.send_keys(".")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("c")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("o")
+time.sleep(0.12)
+emailAddress_textfield.send_keys("m")
+time.sleep(0.12)
+
+password_textfield = driver.find_element_by_name('password')
+password_textfield.send_keys('X701121l')
+time.sleep(1)
+loginButtonDiv = driver.find_element_by_css_selector("[class='nike-unite-submit-button loginSubmit nike-unite-component']")
+loginButton = loginButtonDiv.find_element(By.TAG_NAME,'input')
+loginButton.click()
+
+# driver.get_cookie()
+print(driver.current_url)
+
+print(driver.get_cookies())
+
+# driver.close()
+# driver.quit()
